@@ -1,0 +1,37 @@
+.lds-dual-ring {
+    display: block;
+    justify-content: center;
+    width: 80px;
+    height: 70px;
+    margin: 0 auto;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Стилизуем блок random-planet что бы спиннер был внутри и по середине */
+  .spinner-box {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+    border: solid 1px #444;
+    border-radius: 5px;
+    background-color: #303030;
+    
+  };
