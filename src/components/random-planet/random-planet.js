@@ -18,9 +18,14 @@ export default class RandomPlanet extends Component {
     error: false
   };
 
-  constructor(){
-    super();
+
+  componentDidMount(){
     this.updatePlanet();
+    this.interval = setInterval(this.updatePlanet, 5000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval)
   }
 
   onError = (err) => {
@@ -37,8 +42,8 @@ export default class RandomPlanet extends Component {
     });
   }
 
-  updatePlanet() {
-    // Рандомайзер id для вывщда рандомной планеты
+  updatePlanet = () => {
+    // Рандомайзер id для вывода рандомной планеты
     let id = Math.floor(Math.random() * 19) + 1;
     
     
@@ -66,7 +71,7 @@ export default class RandomPlanet extends Component {
       return <Spinner />
     }
 
-    // Создаём проверку src потому что на сервере нет изображения татуина, сам в шоке :)
+    // Создаём проверку src потому что в API нет изображения татуина(id=1), сам в шоке :)
     let srcPlanet = `https://starwars-visualguide.com/assets/img/planets/${id}.jpg`;
     if(srcPlanet === `https://starwars-visualguide.com/assets/img/planets/1.jpg`){
        srcPlanet = "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
@@ -74,7 +79,7 @@ export default class RandomPlanet extends Component {
     
 
     return (
-      <div className="random-planet jumbotron rounded">
+      <div className="random-planet">
         <img className="planet-image" src={srcPlanet} alt='planet img' />
         <div className='planet-descr'>
           <h4 className='planet-name'>{name}</h4>
