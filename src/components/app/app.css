@@ -6,7 +6,18 @@
     padding: 1rem;
 }
 
-.toggle-planet{
+.btns-panel{
     margin: 1rem;
+    margin-bottom: 0;  
+    padding-top: 1rem;
+             
+}
+
+.btns-panel_item{
     margin-bottom: 0;
+     
+}
+
+.btns-panel_item:first-child{
+    margin-right: 2.8rem;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SwapiService from '../../services/swapi-service.js';
 import Spinner from '../spinner';
+import ErrorButton from '../error-button';
+
 import './person-details.css';
 
 export default class PersonDetails extends Component {
@@ -48,7 +50,7 @@ export default class PersonDetails extends Component {
 
     return (
       <div className="person-details card">
-        <img className="person-image"
+        <img className="person-image" alt='img person'
           src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} />
 
         <div className="card-descr">
@@ -75,6 +77,7 @@ export default class PersonDetails extends Component {
               <span>{ hairColor }</span>
             </li>
           </ul>
+          <ErrorButton />
         </div>
       </div>
     )
